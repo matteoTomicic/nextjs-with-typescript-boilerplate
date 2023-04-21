@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚀 Let's make sure our code is rock-solid before we push it to production! Running 'npm run build' to catch any potential bugs or errors. Stand by for lift-off! 🛰️"
+
+npm run build ||
+(
+    echo "🚫 Houston, we have a problem! The 'npm run build' command failed. Let's fix those bugs and try again. We'll get this rocket off the ground yet! 🚀"
+    false;
+)
+
+# If everything passes... Now we can commit
+echo "✅✅✅ Mission accomplished! The 'npm run build' command passed with flying colors. Our code is rock-solid and ready for launch. Let's push this bad boy to production ✅✅✅"
