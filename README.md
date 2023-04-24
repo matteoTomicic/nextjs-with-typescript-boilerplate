@@ -1,86 +1,31 @@
-# Example app with styled-components
+# Boilerplate instructions
+This boilerplate is designed to establish certain standards to ensure consistency when multiple people work on a project using this boilerplate. The boilerplate does not contain files such as components, etc., because it is possible for each team to set it up according to their preferences or what is most convenient for them. The boilerplate only includes some specific packages and certain rules to ensure code consistency.
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+## Technology Stack
+- This boilerplate uses the `Next.js` framework, as it provides benefits such as server-side rendering, automatic code splitting, and optimized performance.
+- `TypeScript` is also used for type checking and provides benefits such as better code readability, fewer bugs, and easier maintenance.
+- For styling components, this boilerplate uses `styled-components`, which offers benefits such as better code organization, easy theming, and dynamic styling.
 
-This example uses the Rust-based [SWC](https://nextjs.org/docs/advanced-features/compiler#styled-components) in Next.js for better performance than Babel.
+## Husky Configuration
+This boilerplate includes Husky, and several basic Husky hooks are set up:
+- The `commit-msg` hook is set up in a way that if the commit message does not follow the conventional commit standards, the commit message will fail, and we will get an error. For more information, see the `commitlint.config.js` file located in the boilerplate's root.
+- The `pre-commit` hook is set up to run the npm run lint script before committing, which checks for errors related to prettier rules and TypeScript.
+- The `pre-push` hook is set up to run the npm run build script before pushing, and if anything goes wrong, it will prevent the push and give an error.
 
-Currently, only the `ssr` and `displayName` transforms have been implemented. These two transforms are the main requirement for using `styled-components` in Next.js.
+## VS Code Settings
+A folder named `.vscode` is created in this boilerplate, containing the settings.json file with some specific settings for Visual Studio Code only for this project.
 
-## Deploy your own
+## ESLint and Prettier Configuration
+This boilerplate also uses ESLint with Prettier.
+- `ESLint` is used for linting and detecting coding errors and provides benefits such as code consistency and identifying potential bugs.
+- `Prettier` is used for code formatting and offers benefits such as consistent code formatting, automatic code formatting, and improved code readability.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+You can find more details about the configuration in the `.eslintrc.json` and `.prettierrc` files located in the boilerplate's root.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+## Node.js Version
+In the `.nvmrc` file, a specific Node.js version is defined that must be used in this boilerplate. This is beneficial because it ensures consistency among all project contributors, and everyone is working with the same version of Node.js.
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-```
-
-```bash
-yarn create next-app --example with-styled-components with-styled-components-app
-```
-
-```bash
-pnpm create next-app --example with-styled-components with-styled-components-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+## Installation steps
+1. Clone repository
+2. Install node modules by typing `npm install` in the terminal
+3. Run app using `npm run dev` command
