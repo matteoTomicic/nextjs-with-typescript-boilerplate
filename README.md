@@ -14,7 +14,7 @@ A folder named **.vscode** is created in this boilerplate, containing the settin
 
 ## Husky Configuration
 This boilerplate includes Husky, and several basic Husky hooks are set up:
-- The **commit-msg** hook is set up in a way that if the commit message does not follow the conventional commit standards, the commit message will fail, and we will get an error. For more information, see the `commitlint.config.js` file located in the boilerplate's root.
+- The **commit-msg** hook is set up in a way that if the commit message does not follow the conventional commit standards, the commit message will fail, and we will get an error. For more information, see the **commitlint.config.js** file located in the boilerplate's root.
 - The **pre-commit** hook is set up to run the npm run lint script before committing, which checks for errors related to prettier rules and TypeScript.
 - The **pre-push** hook is set up to run the npm run build script before pushing, and if anything goes wrong, it will prevent the push and give an error.
 
