@@ -5,13 +5,14 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:@typescript-eslint/strict",
-        "prettier"
+        "prettier",
+        "plugin:perfectionist/recommended-natural"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "perfectionist"],
     "root": true,
     "globals": {
         "React": "readonly"
@@ -33,13 +34,50 @@
         "max-len": [
             "error",
             {
-                "code": 100,
+                "code": 120,
                 "ignoreTrailingComments": true,
                 "ignoreUrls": true,
                 "ignoreStrings": true,
                 "ignoreTemplateLiterals": true,
                 "ignoreRegExpLiterals": true
             }
+        ],
+        "perfectionist/sort-imports": [
+            "error",
+            {
+                "type": "natural",
+                "order": "asc",
+                "groups": [
+                    "react",
+                    "next",
+                    "builtin",
+                    "external",
+                    "type",
+                    "internal-type",
+                    "internal",
+                    ["parent-type", "sibling-type", "index-type"],
+                    ["parent", "sibling", "index"],
+                    "side-effect",
+                    "style",
+                    "object",
+                    "unknown"
+                ],
+                "custom-groups": {
+                    "value": {
+                        "react": ["react", "react-*"],
+                        "next": ["next", "next-*", "next/*"]
+                    }
+                },
+                "newlines-between": "never"
+            }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["./src/styles.ts", "./src/constants/*", "./src/helpers/*"],
+            "rules": {
+                "perfectionist/sort-objects": ["off"]
+            }
+        }
+    ]
 }
