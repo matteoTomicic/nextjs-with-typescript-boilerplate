@@ -1,3 +1,3 @@
-instalirati prettier
-razmilsiti o tome da se uzmeni neki airbnb ili fb eslint config
+migrate to yarn
+try to use next web vitals linter config with airbnb
 deploy to prod skripta

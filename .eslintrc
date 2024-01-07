@@ -1,36 +1,20 @@
 {
     "extends": [
-        "next",
-        "next/core-web-vitals",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@typescript-eslint/strict",
-        "prettier",
-        "plugin:perfectionist/recommended-natural"
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:@next/next/recommended",
+        "plugin:perfectionist/recommended-natural",
+        "prettier"
     ],
-    "parser": "@typescript-eslint/parser",
+    "plugins": ["perfectionist"],
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "plugins": ["@typescript-eslint", "perfectionist"],
-    "root": true,
-    "globals": {
-        "React": "readonly"
-    },
     "rules": {
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1
-            }
-        ],
-        "import/order": [
-            "error",
-            {
-                "groups": ["builtin", "external", "internal"]
-            }
-        ],
+        "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/indent": "off",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-tabs": "off",
         "max-len": [
             "error",
             {
@@ -68,16 +52,8 @@
                         "next": ["next", "next-*", "next/*"]
                     }
                 },
-                "newlines-between": "never"
+                "newlines-between": "always"
             }
         ]
-    },
-    "overrides": [
-        {
-            "files": ["./src/styles.ts", "./src/constants/*", "./src/helpers/*"],
-            "rules": {
-                "perfectionist/sort-objects": ["off"]
-            }
-        }
-    ]
+    }
 }
