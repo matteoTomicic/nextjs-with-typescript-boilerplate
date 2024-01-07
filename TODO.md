@@ -1,3 +1,2 @@
-instalirati prettier linter i perfectionist
-razmilsiti o tome da se uzmeni neki airbnb ili fb eslint config
+migrate to yarn
 deploy to prod skripta

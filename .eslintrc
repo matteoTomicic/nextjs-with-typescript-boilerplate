@@ -1,0 +1,59 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:@next/next/recommended",
+        "plugin:perfectionist/recommended-natural",
+        "prettier"
+    ],
+    "plugins": ["perfectionist"],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/indent": "off",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-tabs": "off",
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "ignoreTrailingComments": true,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreRegExpLiterals": true
+            }
+        ],
+        "perfectionist/sort-imports": [
+            "error",
+            {
+                "type": "natural",
+                "order": "asc",
+                "groups": [
+                    "react",
+                    "next",
+                    "builtin",
+                    "external",
+                    "type",
+                    "internal-type",
+                    "internal",
+                    ["parent-type", "sibling-type", "index-type"],
+                    ["parent", "sibling", "index"],
+                    "side-effect",
+                    "style",
+                    "object",
+                    "unknown"
+                ],
+                "custom-groups": {
+                    "value": {
+                        "react": ["react", "react-*"],
+                        "next": ["next", "next-*", "next/*"]
+                    }
+                },
+                "newlines-between": "always"
+            }
+        ]
+    }
+}
